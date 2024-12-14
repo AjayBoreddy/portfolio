@@ -8,14 +8,14 @@
    --grayColor:#bbb;
    --blueColor:#689af8;
     
-    
-
 }
+
 *{
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 body{
   width: 100%;
@@ -289,40 +289,46 @@ h3{
 }
 
 /* Style for Projects*/
-#projects{
+/* Style for Projects*/
+/* Style for Projects */
+#projects {
   width: 100%;
   position: relative;
 }
-.project-box{
+
+.project-box {
   width: 100%;
   border-radius: 10px;
   position: relative;
   max-width: 100%;
-  object-fit: cover;
+  overflow: hidden; /* Ensures images don't overflow the container */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.project-box img {
+  display: block; /* Remove extra space below images */
+  width: 100%; /* Ensure the image stretches to the full width of the container */
+  height: 300px; /* Fixed height for consistent image size */
+  object-fit: cover; /* Ensure the image covers the area while maintaining aspect ratio */
+  object-position: center; /* Center the image */
 }
-.project-box img{
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;  
-  object-position: center;
-}
-.project-box .p-overlay{
+
+.project-box .p-overlay {
   position: absolute;
-  top: 100;
+  top: 100%;
   left: 0;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  background:rgba(22,32,82,0.5);
-  background: linear-gradient(180deg , rgba(22,32,82,0), rgba(22,32,82,0.85)100%);
+  background: rgba(22, 32, 82, 0.5);
+  background: linear-gradient(180deg, rgba(22, 32, 82, 0), rgba(22, 32, 82, 0.85) 100%);
   padding: 30px;
   transition: 0.3s;
 }
-.project-box .p-overlay strong{
+
+.project-box .p-overlay strong {
   color: white;
   font-size: 2rem;
   letter-spacing: 2px;
@@ -331,47 +337,304 @@ h3{
   padding-left: 20px;
   font-weight: 700;
 }
-.project-box:hover .p-overlay{
+
+.project-box:hover .p-overlay {
   top: -60px;
 }
-.github-btn{
+
+/* Hover effect for outserved projects */
+.outserved-project:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.outserved-project .p-overlay {
+  opacity: 0; /* Make overlay disappear when hovering */
+  transition: opacity 0.3s ease;
+}
+
+.outserved-project:hover .p-overlay {
+  opacity: 1; /* Show overlay when hovering */
+  top: -60px; /* Adjust top position for hover effect */
+}
+
+.github-btn {
   margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.swiper{
+
+.swiper {
   position: static !important;
   margin: auto;
 }
-.swiper-button-next, .swiper-button-prev{
-  top: 8.7% !important;
 
+.swiper-button-next,
+.swiper-button-prev {
+  top: 8.7% !important;
 }
-.swiper-button-prev{
+
+.swiper-button-prev {
   right: 35px !important;
   left: auto !important;
 }
-.swiper-button-next::after, .swiper-button-prev::after{
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
   font-size: 30px !important;
   color: var(--whiteColor);
 }
-.swiper-slide, .swiper-slide-prev,.swiper-slide-active swiper-slide swiper-slide-next {
-  width: 502px;
-  height: 312.67px;
-  object-fit: cover;
-  max-width: 100%;  
 
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.swiper-pagination{
+
+.swiper-pagination {
   bottom: 80px !important;
 }
+
 .swiper-pagination-bullet {
   background-color: #007bff; /* Custom color */
   opacity: 0.7;
 }
+
 .swiper-pagination-bullet-active {
   background-color: #ff5722; /* Highlighted active bullet */
   opacity: 1;
+}
 
+
+
+
+
+
+
+
+
+/* Style for Careers*/
+.career-education {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: flex-start; /* Aligns items at the top */
+  position: relative;
+  flex-direction: row; /* Arrange Career and Education sections horizontally */
+}
+
+.career-education::before {
+  content: '';
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px; /* Thin line separating sections */
+  height: 100%; 
+  background: var(--grayColor);
+}
+
+.career, .career-edu {
+  width: 45%; /* Limit width of career and education boxes */
+}
+
+.career {
+  margin-right: 10%; /* Add some space between the sections */
+}
+
+.career h3, .career-edu h3 {
+  font-size: 3.1rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-align: center; /* Center the titles */
+}
+
+.c-b-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.c-box h4 {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-left: 3px solid var(--blueColor);
+  line-height: 1.3rem;
+  padding-left: 10px;
+}
+
+.c-box strong {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding-left: 10px;
+  margin-top: 3px;
+}
+
+.c-box span {
+  color: var(--grayColor);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  padding-left: 10px;
+  margin-top: 6px;
+}
+
+.btn-c {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  margin-top: 30px;
+}
+
+.btn-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--blueColor);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.fa-download {
+  margin-left: 8px;
+}
+
+/* Style for About*/
+.about-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.about-heading{
+  width: 430px;
+}
+.about-heading strong{
+  color: var(--blueColor);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.about-heading h3{
+  font-size: 2.1rem;
+  margin: 15px 0;
+  line-height: 2.8rem;
+
+}
+.about-details{
+  width: 475px;
+}
+.about-details p{
+  margin : 10px 0;
+  color: var(--grayColor);
+  
+}
+
+/* Style for About*/
+#contact{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+#contact strong{
+  color: var(--blueColor);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+#contact h3{
+  font-size: 2.35rem;
+  letter-spacing: 1px;
+}
+#contact p{
+  margin: 15px 0;
+  color: var(--grayColor);
+  max-width: 700px;
+  letter-spacing: 1px;
+
+}
+
+/* Style for Footer*/
+footer{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+footer span{
+  color: var(--grayColor);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+footer i{
+  color: var(--whiteColor);
+  margin: 0 15px;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+footer i:hover{
+  text-shadow: 0 0 10px var(--whiteColor);
+
+}
+footer .footer-logo{
+  color: var(--whiteColor);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 1.3rem;
+}
+
+
+/* Style for Progress*/
+#progress{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  cursor: pointer;
+  box-shadow: 0 0  10px var(--whiteColor);
+  transition: background 0.3s ease;
+}
+#progress div{
+  width: calc(100% - 5px);
+  height: calc(100% - 5px);
+  background: #111;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+}
+::-webkit-scrollbar{
+  display: none;
 }

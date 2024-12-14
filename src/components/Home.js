@@ -5,7 +5,7 @@ import  Picture from '../assets/myimg.jpg';
 const Home = () => {
   return (
     <section id ="home">
-        <div className="home-text">
+        <div className="home-text" data-aos ="fade-down">
     <strong>
         Hello, it's me
     </strong>
@@ -13,23 +13,23 @@ const Home = () => {
      <p>Full Stack Developer</p>
      <a href="#summary" className='btn-link'>Scroll For Me</a>
      </div>
-     <div className="home-img">
+     <div className="home-img" data-aos ="fade-up">
         <div className="img-box">
             <img src={Picture} alt="Picture" />
             <h2>Ajay Boreddy <br/><span>Full-Stack Developer</span></h2>
             <div className="social">
-                <a href="#!">
+                <a href="mailto:ajaykumar.boreddy@gmail.com">
                 <i class="fa-brands fa-google"></i>
-                <a href="#!">
+                <a href="https://www.linkedin.com/in/ajay-kumar-reddy-boreddy-13398512b/">
                 <i class="fa-brands fa-linkedin"></i>
                     </a>
-                <a href="#!">
+                <a href="https://github.com/AjayBoreddy">
                 <i class="fa-brands fa-github"></i>
                 </a>
                 </a>
 
             </div>
-             <a href="#!" className='hire-me'>Hire Me</a>
+             <a href="mailto:ajaykumar.boreddy@gmail.com" className='hire-me'>Hire Me</a>
         </div>
 
      </div>
